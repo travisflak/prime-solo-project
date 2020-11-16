@@ -10,6 +10,7 @@ import userSaga from './user.saga';
 // some sagas trigger other sagas, as an example
 // the registration triggers a login
 // and login triggers setting the user
+//it doesn't matter what saga you create, it won't register if you don't add it to the yield all array below
 export default function* rootSaga() {
   yield all([
     loginSaga(), // login saga is now registered

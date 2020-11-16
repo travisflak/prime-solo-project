@@ -37,6 +37,7 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
 
             {/* Visiting localhost:3000/about will show the about page. */}
+            {/* this is a standard route, which means it is NOT secure, and will be available to anyone that goes to this /about page */}
             <Route
               // shows AboutPage at all times (logged in or not)
               exact
