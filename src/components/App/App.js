@@ -14,11 +14,14 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+// import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import groceryList from '../groceryList/groceryList';
+import groceryAddItem from '../groceryAddItem/groceryAddItem';
+import notSoSecretAdminStuffPage from '../notSoSecretAdminStuffPage/notSoSecretAdminStuffPage';
 
 import './App.css';
 
@@ -50,10 +53,24 @@ class App extends Component {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
             <ProtectedRoute
-              // logged in shows UserPage else shows LoginPage
+              // logged in shows groceryList page else shows LoginPage
               exact
-              path="/user"
-              component={UserPage}
+              path="/groceryList"
+              component={groceryList}
+            />
+
+            <ProtectedRoute
+              // logged in shows groceryAddItem else shows LoginPage
+              exact
+              path="/groceryAddItem"
+              component={groceryAddItem}
+            />
+
+            <ProtectedRoute
+              // logged in shows notSoSecretAdminStuffPage else shows LoginPage
+              exact
+              path="/notSoSecretAdminStuffPage"
+              component={notSoSecretAdminStuffPage}
             />
 
             <ProtectedRoute
@@ -73,7 +90,7 @@ class App extends Component {
               exact
               path="/login"
               component={LoginPage}
-              authRedirect="/user"
+              authRedirect="/groceryList"
             />
             <ProtectedRoute
               // with authRedirect:
@@ -82,7 +99,7 @@ class App extends Component {
               exact
               path="/registration"
               component={RegisterPage}
-              authRedirect="/user"
+              authRedirect="/groceryList"
             />
             <ProtectedRoute
               // with authRedirect:
@@ -91,7 +108,17 @@ class App extends Component {
               exact
               path="/home"
               component={LandingPage}
-              authRedirect="/user"
+              authRedirect="/groceryList"
+            />
+
+            <ProtectedRoute
+              // with authRedirect:
+              // - if logged in, redirects to "/user"
+              // - else shows LandingPage at "/home"
+              exact
+              path="/home"
+              component={LandingPage}
+              authRedirect="/groceryList"
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
