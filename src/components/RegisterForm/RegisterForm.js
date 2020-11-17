@@ -6,6 +6,7 @@ class RegisterForm extends Component {
   state = {
     username: '',
     password: '',
+    admin: false
   };
 
   registerUser = (event) => {
@@ -16,6 +17,7 @@ class RegisterForm extends Component {
       payload: {
         username: this.state.username,
         password: this.state.password,
+        admin: this.state.admin
       },
     });
   }; // end registerUser
