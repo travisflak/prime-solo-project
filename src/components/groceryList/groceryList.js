@@ -2,19 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class groceryList extends Component {
+
+    componentDidMount() {
+    this.getGroceries();
+    }
+    
+    getGroceries() {
+        console.log('in getGroceries');
+    
+        this.props.dispatch({type: 'FETCH_GROCERIES'});
+    }
+
   state = {
-    heading: 'Class Component',
+    heading: 'Grocery List',
   };
 
   render() {
     return (
       <div>
         <h2>{this.state.heading}</h2>
+        <pre>{JSON.stringify(this.props.reduxState)}</pre>
+        <button>Add Item to List</button>
       </div>
     );
   }
