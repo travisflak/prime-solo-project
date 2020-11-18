@@ -24,6 +24,7 @@ class groceryList extends Component {
         <h2>{this.state.heading}</h2>
         <pre>{JSON.stringify(this.props.reduxState)}</pre>
         <button>Add Item to List</button>
+        
       </div>
     );
   }

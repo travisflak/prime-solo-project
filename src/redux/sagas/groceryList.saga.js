@@ -2,11 +2,11 @@ import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 //comment what this is doing
-function* fetchGroceries(action){
-    console.log('hello from addGarden:', action.payload);
+function* fetchGroceries(){
+    console.log('hello from addGarden:');
     try{
-    yield axios.post('/api/groceryList/addItem', action.payload)
-    yield put({type: 'SET_GROCERIES'});
+    const groceries = yield axios.get('/api/groceryList/')
+    yield put({type: 'SET_GROCERIES', payload: groceries});
     } catch (error){
         console.log('error in post', error);
     }
