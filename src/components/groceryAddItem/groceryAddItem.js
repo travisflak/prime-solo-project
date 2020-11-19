@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import {withRouter} from 'react-router-dom';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -8,22 +9,45 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // component.
 class groceryAddItem extends Component {
   state = {
-    heading: 'Add Some Groceries!',
+    newItem: {  
+        item: '',
+        quantity: 0,
+    }
   };
+//which param to enter into and take each value to put it in there
+  handleChange = ( event, typeParam ) => {
+      this.setState({
+          newItem: {
+              ...this.state.newItem,
+              [typeParam]:event.target.value
+          }
+      })
+      console.log(this.state);
+  }
+
+  submitGroceriesBtn = () => {
+    console.log('grocery item', this.state);
+    
+  }
+
+  backToGroceryList = () => {
+      this.props.history.push('/groceryList')
+  }
 
   render() {
     return (
         <div>
-        <h2>{this.state.heading}</h2>
+        <h2>Add Your Groceries to the List</h2>
         <pre>{JSON.stringify(this.props.reduxState)}</pre>
         <header>
-            <button>Back to Grocery List</button>
+            <button onClick={this.backToGroceryList} >Back to Grocery List</button>
         </header>
-        <input type="number" onChange={(event) => this.setState({groceryList:event.target.value})}/>
-        <button>Add Groceries to List</button>
+        <input type="text" onChange={(event) => this.handleChange(event, 'item')}/>
+        <input type="number" onChange={(event) => this.handleChange(event, 'quantity')}/>
+        <button onClick={this.submitGroceriesBtn} >Add Groceries to List</button>
       </div>
     );
   }
 }
 
-export default connect(mapStoreToProps)(groceryAddItem);
+export default withRouter(connect(mapStoreToProps)(groceryAddItem))
