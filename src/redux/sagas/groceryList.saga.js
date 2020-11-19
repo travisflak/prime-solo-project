@@ -1,7 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-//comment what this is doing
+//generator function for getting the data in the groceries table
 function* fetchGroceries(){
     console.log('hello from addGarden:');
     try{

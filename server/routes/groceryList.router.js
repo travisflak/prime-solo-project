@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 });
 })
 
-router.post('/addItem', (req, res, next) => {
+router.post('/', (req, res) => {
     const user_id = req.user.id;
     const item = req.body.item;
     const quantity = req.body.quantity;

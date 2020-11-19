@@ -8,13 +8,19 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // component.
 class groceryAddItem extends Component {
   state = {
-    heading: 'Class Component',
+    heading: 'Add Some Groceries!',
   };
 
   render() {
     return (
-      <div>
+        <div>
         <h2>{this.state.heading}</h2>
+        <pre>{JSON.stringify(this.props.reduxState)}</pre>
+        <header>
+            <button>Back to Grocery List</button>
+        </header>
+        <input type="number" onChange={(event) => this.setState({groceryList:event.target.value})}/>
+        <button>Add Groceries to List</button>
       </div>
     );
   }

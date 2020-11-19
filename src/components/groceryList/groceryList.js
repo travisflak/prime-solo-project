@@ -23,7 +23,10 @@ class groceryList extends Component {
       <div>
         <h2>{this.state.heading}</h2>
         <pre>{JSON.stringify(this.props.reduxState)}</pre>
-        <button>Add Item to List</button>
+        <header>
+            <button onClick={() => this.props.history.push('/addItem')}>Add Item to List</button>
+            <button>Refresh Shopped Items</button>
+        </header>
         <input type="number" onChange={(event) => this.setState({groceryList:event.target.value})}/>
         <button>Shopped?</button>
         <button>Delete Item</button>
