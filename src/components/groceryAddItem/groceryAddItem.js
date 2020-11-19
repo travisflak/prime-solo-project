@@ -25,26 +25,30 @@ class groceryAddItem extends Component {
       console.log(this.state);
   }
 
-  submitGroceriesBtn = () => {
-    console.log('grocery item', this.state);
+//   submitGroceriesBtn = () => {
+//     console.log('grocery item', this.state);
     
-  }
+//   }
 
   backToGroceryList = () => {
       this.props.history.push('/groceryList')
   }
 
+  addNewGroceries = () => {
+    this.props.dispatch({type: 'ADD_GROCERIES', payload: this.state.newItem});
+  }
+
   render() {
     return (
         <div>
-        <h2>Add Your Groceries to the List</h2>
+        <h2>Add Grocery Items to the List</h2>
         <pre>{JSON.stringify(this.props.reduxState)}</pre>
         <header>
             <button onClick={this.backToGroceryList} >Back to Grocery List</button>
         </header>
         <input type="text" onChange={(event) => this.handleChange(event, 'item')}/>
         <input type="number" onChange={(event) => this.handleChange(event, 'quantity')}/>
-        <button onClick={this.submitGroceriesBtn} >Add Groceries to List</button>
+        <button onClick={this.addNewGroceries} >Add Groceries to List</button>
       </div>
     );
   }
