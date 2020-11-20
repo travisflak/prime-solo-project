@@ -28,8 +28,19 @@ class groceryList extends Component {
             <button>Refresh Shopped Items</button>
         </header>
         <input type="number" onChange={(event) => this.setState({groceryList:event.target.value})}/>
-        <button>Shopped?</button>
-        <button>Delete Item</button>
+        
+        
+        <ol>
+            {this.props.store.groceryListItems.map((groceryItem) => {
+                return(
+                <li>{groceryItem.item}{groceryItem.quantity}
+                    
+                    <button>Shopped?</button>
+                    <button>Delete Item</button>
+                </li>)
+                
+            })}
+        </ol>
       </div>
     );
   }

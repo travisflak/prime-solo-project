@@ -4,6 +4,8 @@ const router = express.Router();
 
 //get route querying all data from groceries table
 router.get('/', (req, res) => {
+  console.log('GET', req.user.id);
+  
   const queryText = `SELECT * FROM "groceries" WHERE "user_id" = $1`;
 
   pool
@@ -17,6 +19,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const user_id = req.user.id;
+    console.log('user id', user_id);
+    
     const item = req.body.item;
     const quantity = req.body.quantity;
     const shopped = req.body.shopped;

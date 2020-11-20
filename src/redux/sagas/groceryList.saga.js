@@ -3,10 +3,12 @@ import axios from 'axios';
 
 //generator function for getting the data in the groceries table
 function* fetchGroceries(){
-    console.log('hello from addGarden:');
+    console.log('hello from fetchGrocery:');
     try{
     const groceries = yield axios.get('/api/groceryList/')
-    yield put({type: 'SET_GROCERIES', payload: groceries});
+    console.log('groceries', groceries.data);
+    
+    yield put({type: 'SET_GROCERIES', payload: groceries.data});
     } catch (error){
         console.log('error in post', error);
     }

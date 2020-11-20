@@ -12,6 +12,7 @@ class groceryAddItem extends Component {
     newItem: {  
         item: '',
         quantity: 0,
+        shopped: false,
     }
   };
 //which param to enter into and take each value to put it in there

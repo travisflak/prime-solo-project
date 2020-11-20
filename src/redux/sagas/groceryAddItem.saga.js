@@ -6,7 +6,7 @@ function* addGroceries(action){
     console.log('hello from addGroceryItem', action.payload);
     try{
     yield axios.post('/api/groceryList', action.payload)
-    yield put({type: 'FETCH_GROCERIES'});
+    // yield put({type: 'FETCH_GROCERIES'});
     } catch (error){
         console.log('error in post', error);
     }
@@ -14,6 +14,7 @@ function* addGroceries(action){
 
   function* groceryAddItems() {
     yield takeLatest('ADD_GROCERIES', addGroceries);
+
   }
 
   export default groceryAddItems;
