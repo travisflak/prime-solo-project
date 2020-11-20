@@ -6,6 +6,7 @@ function* deleteGroceryItem(action){
     
     try{
         console.log('hello from deleteGroceryItem:', action.payload);
+    // use string interpolation to pass the payload
     yield axios.delete(`/api/groceryList/${action.payload.id}`)
     
     yield put({type: 'FETCH_GROCERIES'});
