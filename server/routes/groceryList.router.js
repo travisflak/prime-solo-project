@@ -36,4 +36,17 @@ router.post('/', (req, res) => {
       });
   });
 
+  router.delete ('/:id', (req, res) => {
+    console.log('In delete router', req.params.id);
+    
+    const queryText = `DELETE FROM "groceries" WHERE  "id" = $1;`;
+pool
+  .query(queryText, [req.params.id])
+  .then(() => res.sendStatus(201))
+  .catch((err) => {
+    console.log('User registration failed: ', err);
+    res.sendStatus(500);
+  });
+});
+
 module.exports = router;
