@@ -22,14 +22,14 @@ class groceryList extends Component {
     this.getGroceries();
     }
 
-    componentDidUpdate() {
+    // componentDidUpdate() {
 
-        if (this.props.store.user !== this.state.user){
-            this.setState({groceryList: this.props.store.groceryListItems, user: this.props.store.user})
-            console.log(this.props.store.groceryListItems !== this.state.groceryList);
+    //     if (this.props.store.user !== this.state.user){
+    //         this.setState({groceryList: this.props.store.groceryListItems, user: this.props.store.user})
+    //         console.log(this.props.store.groceryListItems !== this.state.groceryList);
         
-        }
-    }
+    //     }
+    // }
     
     getGroceries() {
         console.log('in getGroceries');
@@ -51,9 +51,21 @@ class groceryList extends Component {
 
     checkIfShopped(isItShopped) {
         if(isItShopped === true) {
-            return 'shopped'
+            return (
+                <div className='shopped'>
+                <p>shopped?</p>
+                </div>
+                )
+            
         }
-        else{return 'notShopped'}
+        else{
+            return (
+                <div className='notShopped'>
+                <p>NOT shopped!</p>
+                </div>
+                )
+        
+        }
     }
 
   render() {
@@ -61,8 +73,8 @@ class groceryList extends Component {
       <div>
 
         <header>
+            {/* button for user to click and pushes them to the addItem page */}
             <button onClick={() => this.props.history.push('/addItem')}>Add Item to List</button>
-            <button onClick={() => this.refreshShopped()}>Refresh Shopped Items</button>
         </header>
         
         <ol>
@@ -74,7 +86,9 @@ class groceryList extends Component {
                 <li className={this.checkIfShopped(groceryItem.shopped)}>{groceryItem.item}
                     <input type="number" defaultValue={groceryItem.quantity} onChange={(event) => this.setState({groceryList:event.target.value})}/>
                     <button onClick={() => this.toggleShopped(groceryItem)}>Shopped?</button>
-                    <p>{this.checkIfShopped(groceryItem.shopped)}</p>
+                  <div>
+                    {this.checkIfShopped(groceryItem.shopped)}
+                  </div>
                     <button onClick={() => this.deleteItem(groceryItem.id)}>Delete Item</button>
                 </li>)
                 

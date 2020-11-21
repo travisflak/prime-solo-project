@@ -1,3 +1,9 @@
 .shopped {
-    background-color: aqua;
+    background-color: rgb(255, 166, 0);
+    border: 1px solid black;
+}
+
+.notShopped {
+    background-color: rgb(0, 255, 213);
+    border: 1px solid black;
 }
