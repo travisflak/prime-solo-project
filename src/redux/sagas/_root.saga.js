@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import gorceryListSaga from './groceryList.saga';
 import groceryAddItem from './groceryAddItem.saga';
 import deleteItemSaga from './deleteItem.saga';
+import refreshShoppedSaga from './refreshShopped.saga.js';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -22,5 +23,6 @@ export default function* rootSaga() {
     gorceryListSaga(),
     groceryAddItem(),
     deleteItemSaga(),
+    refreshShoppedSaga(),
   ]);
 }

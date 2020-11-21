@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   console.log('GET', req.user.id);
   
-  const queryText = `SELECT * FROM "groceries" WHERE "user_id" = $1`;
+  const queryText = `SELECT * FROM "groceries" WHERE "user_id" = $1 ORDER BY "id" asc`;
 
   pool
     .query(queryText, [req.user.id])
@@ -48,5 +48,19 @@ pool
     res.sendStatus(500);
   });
 });
+
+router.put ('/', (req, res) => {
+  console.log('In PUT router');
+  let shopped = !req.body.shopped
+  const queryText = `UPDATE "groceries" SET "shopped" = $3 WHERE user_id = $1 and id = $2;`;
+pool
+.query(queryText, [req.user.id,req.body.id, shopped])
+.then(() => res.sendStatus(201))
+.catch((err) => {
+  console.log('Shopped refresh failed: ', err);
+  res.sendStatus(500);
+});
+});
+
 
 module.exports = router;
