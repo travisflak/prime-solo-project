@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './groceryList.css';
+import { Button } from '@material-ui/core';
 
 class groceryList extends Component {
 
@@ -53,7 +54,7 @@ class groceryList extends Component {
         if(isItShopped === true) {
             return (
                 <div className='shopped'>
-                <p>shopped?</p>
+                <p>This item is in your shopping cart.</p>
                 </div>
                 )
             
@@ -74,7 +75,7 @@ class groceryList extends Component {
 
         <header>
             {/* button for user to click and pushes them to the addItem page */}
-            <button onClick={() => this.props.history.push('/addItem')}>Add Item to List</button>
+            <Button color="primary" onClick={() => this.props.history.push('/addItem')}>Add Item to your List</Button>
         </header>
         
         <ol>
@@ -84,12 +85,12 @@ class groceryList extends Component {
                 
                 return(
                 <li className={this.checkIfShopped(groceryItem.shopped)}>{groceryItem.item}
-                    <input type="number" defaultValue={groceryItem.quantity} onChange={(event) => this.setState({groceryList:event.target.value})}/>
-                    <button onClick={() => this.toggleShopped(groceryItem)}>Shopped?</button>
+                    <input type="number" min={0} defaultValue={groceryItem.quantity} onChange={(event) => this.setState({groceryList:event.target.value})}/>
+                    <Button color="primary" onClick={() => this.toggleShopped(groceryItem)}>Shopped?</Button>
                   <div>
                     {this.checkIfShopped(groceryItem.shopped)}
                   </div>
-                    <button onClick={() => this.deleteItem(groceryItem.id)}>Delete Item</button>
+                    <Button color="secondary" onClick={() => this.deleteItem(groceryItem.id)}>Delete Item</Button>
                 </li>)
                 
             })}

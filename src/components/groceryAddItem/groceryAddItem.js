@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {withRouter} from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -42,14 +43,14 @@ class groceryAddItem extends Component {
   render() {
     return (
         <div>
-        <h2>Add Grocery Items to the List</h2>
+        <h3>Add grocery items to your list.</h3>
         <pre>{JSON.stringify(this.props.reduxState)}</pre>
         <header>
-            <button onClick={this.backToGroceryList} >Back to Grocery List</button>
+            <Button color="primary" onClick={this.backToGroceryList} >Back to Grocery List</Button>
         </header>
         <input type="text" onChange={(event) => this.handleChange(event, 'item')}/>
-        <input type="number" onChange={(event) => this.handleChange(event, 'quantity')}/>
-        <button onClick={this.addNewGroceries} >Add Groceries to List</button>
+        <input type="number" min={0} onChange={(event) => this.handleChange(event, 'quantity')}/>
+        <Button color="primary" onClick={this.addNewGroceries} >Add Groceries to List</Button>
       </div>
     );
   }

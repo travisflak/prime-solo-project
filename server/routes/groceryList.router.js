@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     .catch((err) => {
         console.log('User registration failed: ', err);
         res.sendStatus(500);
-});
+  });
 })
 
 router.post('/', (req, res) => {
@@ -59,7 +59,7 @@ pool
 .catch((err) => {
   console.log('Shopped refresh failed: ', err);
   res.sendStatus(500);
-});
+  });
 });
 
 
