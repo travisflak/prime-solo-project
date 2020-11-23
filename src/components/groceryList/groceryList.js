@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './groceryList.css';
 import { Button } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleRight, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
+
+const rightArrowIcon = <FontAwesomeIcon icon={faArrowAltCircleRight} />
+const minusSquare = <FontAwesomeIcon icon={faMinusSquare} />
 
 class groceryList extends Component {
 
@@ -22,15 +27,6 @@ class groceryList extends Component {
     componentDidMount() {
     this.getGroceries();
     }
-
-    // componentDidUpdate() {
-
-    //     if (this.props.store.user !== this.state.user){
-    //         this.setState({groceryList: this.props.store.groceryListItems, user: this.props.store.user})
-    //         console.log(this.props.store.groceryListItems !== this.state.groceryList);
-        
-    //     }
-    // }
     
     getGroceries() {
         console.log('in getGroceries');
@@ -75,7 +71,7 @@ class groceryList extends Component {
 
         <header>
             {/* button for user to click and pushes them to the addItem page */}
-            <Button color="primary" onClick={() => this.props.history.push('/addItem')}>Add Item to your List</Button>
+    <Button color="primary" onClick={() => this.props.history.push('/addItem')}> Add Item to your List<span className="addButton">{rightArrowIcon}</span></Button>
         </header>
         
         <ol>
@@ -90,7 +86,7 @@ class groceryList extends Component {
                   <div>
                     {this.checkIfShopped(groceryItem.shopped)}
                   </div>
-                    <Button color="secondary" onClick={() => this.deleteItem(groceryItem.id)}>Delete Item</Button>
+                    <Button color="secondary" onClick={() => this.deleteItem(groceryItem.id)}>Delete Item<span className="deleteButton">{minusSquare}</span></Button>
                 </li>)
                 
             })}
