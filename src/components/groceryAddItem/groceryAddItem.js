@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {withRouter} from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusSquare, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+
+//add const fa components
+const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
+const backToListArrow = <FontAwesomeIcon icon={faArrowAltCircleLeft} />
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -46,11 +52,15 @@ class groceryAddItem extends Component {
         <h3>Add grocery items to your list.</h3>
         <pre>{JSON.stringify(this.props.reduxState)}</pre>
         <header>
-            <Button color="primary" onClick={this.backToGroceryList} >Back to Grocery List</Button>
+            <Button color="primary" onClick={this.backToGroceryList} ><span className="backToListArrow">{backToListArrow}</span>Back to Grocery List</Button>
+
+            {/* <Button className="addItemBtn" color="primary" onClick={() => this.props.history.push('/addItem')}> Add Item to your List
+                <span className="addButton">{plusSquare}</span></Button> */}
+
         </header>
         <input type="text" onChange={(event) => this.handleChange(event, 'item')}/>
         <input type="number" min={0} onChange={(event) => this.handleChange(event, 'quantity')}/>
-        <Button color="primary" onClick={this.addNewGroceries} >Add Groceries to List</Button>
+        <Button color="primary" onClick={this.addNewGroceries} >Add Groceries to List<span className="addButton">{plusSquare}</span></Button>
       </div>
     );
   }
