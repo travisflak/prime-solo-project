@@ -69,14 +69,14 @@ class groceryList extends Component {
     return (
       <div>
          
+        <section className="listBody">
+        <div className="listContainer">
         <header>
             {/* button for user to click and pushes them to the addItem page */}
                 <Button className="addItemBtn" color="primary" onClick={() => this.props.history.push('/addItem')}> Add Item to your List
                 <span className="addButton">{plusSquare}</span></Button>  
         </header>
-        <section>
-        <img src="/grocery_shopping_image.jpg" alt="alternatetext"></img>
-        <ol>     
+        <ol className="groceryList">     
         {/* //map through graoceryItem */}
             {this.props.store.groceryListItems.map((groceryItem) => {
                 console.log(groceryItem);
@@ -89,10 +89,12 @@ class groceryList extends Component {
                     {this.checkIfShopped(groceryItem.shopped)}
                   </div>
                     <Button color="secondary" onClick={() => this.deleteItem(groceryItem.id)}>Delete Item<span className="deleteButton">{minusSquare}</span></Button>
+                    <hr/>
                 </li>)
                 
             })}
         </ol>
+        </div>
         </section>
       </div>
     );

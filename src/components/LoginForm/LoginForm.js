@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { withRouter } from 'react-router';
 
 class LoginForm extends Component {
   state = {
@@ -19,6 +20,7 @@ class LoginForm extends Component {
           password: this.state.password,
         },
       });
+      this.props.history.push("/groceryList");
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -71,4 +73,4 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(LoginForm);
+export default withRouter(connect(mapStoreToProps)(LoginForm));

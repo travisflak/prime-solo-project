@@ -1,0 +1,39 @@
+@viewport {
+    width: device-width ;
+    zoom: 1.0 ;
+}
+
+@media screen and (min-width:320px) {
+    /* for screens that are at least 320 pixels wide */
+
+    .h3Header {
+        background-color: lavender !important;
+        padding: 20px;
+    }
+
+    .backToListBtn {
+        font-size: large !important;
+        border: 1px solid black !important;
+        background-color: lavender !important;
+    }
+
+    .addItemText {
+        background-color: lavender !important;
+    }
+
+    .addButton {
+        color: rgb(102, 196, 73) !important;
+    }
+
+    .backToListArrow{
+        color: rgb(102, 196, 73);
+    }
+
+    .addItemBody {
+        background-image: url("../../images/addItem_grocery_isle.jpg");
+        background-size: cover;
+        background-position: center;
+        min-height: 76vh;
+        padding: 20px;
+    }
+}

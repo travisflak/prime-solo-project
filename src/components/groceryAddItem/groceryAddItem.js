@@ -5,6 +5,7 @@ import {withRouter} from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import './groceryAddItem.css';
 
 //add const fa components
 const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
@@ -33,10 +34,14 @@ class groceryAddItem extends Component {
       console.log(this.state);
   }
 
-//   submitGroceriesBtn = () => {
-//     console.log('grocery item', this.state);
-    
-//   }
+  // onHandleSubmit(e) {
+  //   e.preventDefault();
+  //   const item = this.state.item;
+  //   this.props.onItemChange(item);
+  //   this.setState({
+  //     item: ''
+  //   });
+  // }
 
   backToGroceryList = () => {
       this.props.history.push('/groceryList')
@@ -48,19 +53,15 @@ class groceryAddItem extends Component {
 
   render() {
     return (
-        <div>
-        <h3>Add grocery items to your list.</h3>
-        <pre>{JSON.stringify(this.props.reduxState)}</pre>
+        <div className="addItemBody">
+        <h3 className="h3Header">Add items to your grocery shopping list:</h3>
         <header>
-            <Button color="primary" onClick={this.backToGroceryList} ><span className="backToListArrow">{backToListArrow}</span>Back to Grocery List</Button>
-
-            {/* <Button className="addItemBtn" color="primary" onClick={() => this.props.history.push('/addItem')}> Add Item to your List
-                <span className="addButton">{plusSquare}</span></Button> */}
-
+            <Button className="backToListBtn" color="primary" onClick={this.backToGroceryList} ><span className="backToListArrow">
+            {backToListArrow}</span>Back to Grocery List</Button>
         </header>
         <input type="text" onChange={(event) => this.handleChange(event, 'item')}/>
         <input type="number" min={0} onChange={(event) => this.handleChange(event, 'quantity')}/>
-        <Button color="primary" onClick={this.addNewGroceries} >Add Groceries to List<span className="addButton">{plusSquare}</span></Button>
+        <Button className="addItemText" color="primary" onClick={this.addNewGroceries} >Add Groceries to List<span className="addButton">{plusSquare}</span></Button>
       </div>
     );
   }
