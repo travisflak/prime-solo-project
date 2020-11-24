@@ -4,9 +4,9 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './groceryList.css';
 import { Button } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowAltCircleRight, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 
-const rightArrowIcon = <FontAwesomeIcon icon={faArrowAltCircleRight} />
+const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
 const minusSquare = <FontAwesomeIcon icon={faMinusSquare} />
 
 class groceryList extends Component {
@@ -68,13 +68,15 @@ class groceryList extends Component {
   render() {
     return (
       <div>
-
+         
         <header>
             {/* button for user to click and pushes them to the addItem page */}
-    <Button color="primary" onClick={() => this.props.history.push('/addItem')}> Add Item to your List<span className="addButton">{rightArrowIcon}</span></Button>
+                <Button className="addItemBtn" color="primary" onClick={() => this.props.history.push('/addItem')}> Add Item to your List
+                <span className="addButton">{plusSquare}</span></Button>  
         </header>
-        
-        <ol>
+        <section>
+        <img src="/grocery_shopping_image.jpg" alt="alternatetext"></img>
+        <ol>     
         {/* //map through graoceryItem */}
             {this.props.store.groceryListItems.map((groceryItem) => {
                 console.log(groceryItem);
@@ -91,6 +93,7 @@ class groceryList extends Component {
                 
             })}
         </ol>
+        </section>
       </div>
     );
   }
