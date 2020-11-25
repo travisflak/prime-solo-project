@@ -6,6 +6,8 @@ import { Button } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import './groceryAddItem.css';
+import swal from 'sweetalert';
+
 
 //add const fa components
 const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
@@ -49,11 +51,12 @@ class groceryAddItem extends Component {
 
   addNewGroceries = () => {
     console.log(this.state.newItem);
+    swal("you added an item!", "You can click Back to Grocery List to see the item that you added.", "success");
     if (this.state.newItem.item !== '') {
       this.props.dispatch({type: 'ADD_GROCERIES', payload: this.state.newItem});
     }
     else {
-      alert("please enter an item name")
+      swal("Uh oh!", "You must enter an item.", "error");
     }
   }
   //   handleInputChange = (propertyName, event) => {
