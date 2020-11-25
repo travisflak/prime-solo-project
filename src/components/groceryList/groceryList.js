@@ -5,6 +5,7 @@ import './groceryList.css';
 import { Button } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusSquare, faMinusSquare, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
+import swal from 'sweetalert';
 
 const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
 const minusSquare = <FontAwesomeIcon icon={faMinusSquare} />
@@ -53,8 +54,23 @@ class groceryList extends Component {
     }
     //delete function for delting a row in the groceries table
     deleteItem(deletingItem) {
-        
-        this.props.dispatch({type: 'DELETE_GROCERIES', payload: {id: deletingItem}})
+        swal({
+            title: "Are you sure?",
+            text: "Are you sure you want to delete this item?",
+            icon: "info",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) { this.props.dispatch({type: 'DELETE_GROCERIES', payload: {id: deletingItem}})
+              swal("Poof! Your item is now deleted!", {
+                icon: "success",
+              });
+            } else {
+              swal("Your item is safe!");
+            }
+          });
+
     }
 
     toggleShopped(groceryItem) {

@@ -72,13 +72,13 @@ class groceryAddItem extends Component {
   render() {
     return (
         <div className="addItemBody">
-        <h4 className="h3Header">Add items to your grocery shopping list:</h4>
+        {/* <h4 className="h4Header">Add some items to your grocery shopping list.</h4> */}
         <header>
             <Button className="backToListBtn" color="primary" onClick={this.backToGroceryList} ><span className="backToListArrow">
             {backToListArrow}</span>Back to Grocery List</Button>
         </header>
-        <input type="text" onChange={(event) => this.handleChange(event, 'item')}/>
-        <input type="number" min={0} onChange={(event) => this.handleChange(event, 'quantity')}/>
+        <input type="text" placeholder="item" onChange={(event) => this.handleChange(event, 'item')}/>
+        <input type="number" placeholder="quantity" min={0} onChange={(event) => this.handleChange(event, 'quantity')}/>
         <Button className="addItemText" color="primary" onClick={this.addNewGroceries} >Add Groceries to List<span className="addButton">{plusSquare}</span></Button>
       </div>
     );
