@@ -4,10 +4,11 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './groceryList.css';
 import { Button } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare, faMinusSquare, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
 
 const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
 const minusSquare = <FontAwesomeIcon icon={faMinusSquare} />
+const redoAlt = <FontAwesomeIcon icon={faRedoAlt} />
 
 class groceryList extends Component {
 
@@ -119,8 +120,9 @@ class groceryList extends Component {
             {/* button for user to click and pushes them to the addItem page */}
                 <Button className="addItemBtn" color="primary" onClick={() => this.props.history.push('/addItem')}> Add Item to your List
                 <span className="addButton">{plusSquare}</span></Button>
-
-                <button className="refreshAllShopped" onClick={() => this.refreshAllShoppedItems()} >refresh all shopped</button>
+            {/* button or refreshing all shopped grocery items marked as shopped to NOT shopped */}
+                <Button className="refreshAllShopped" onClick={() => this.refreshAllShoppedItems()}> refresh all shopped
+                <span className="refreshIcon">{redoAlt}</span></Button>
 
         </header>
         <ol className="groceryList">     

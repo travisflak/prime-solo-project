@@ -2,8 +2,12 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
+
 //get route querying all data from groceries table
-router.get('/', (req, res) => {
+router.get('/',rejectUnauthenticated, (req, res) => {
   console.log('GET', req.user.id);
   
   const queryText = `SELECT * FROM "groceries" WHERE "user_id" = $1 ORDER BY "id" asc`;
@@ -17,7 +21,7 @@ router.get('/', (req, res) => {
   });
 })
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     const user_id = req.user.id;
     console.log('user id', user_id);
     
@@ -36,7 +40,7 @@ router.post('/', (req, res) => {
       });
   });
 
-  router.delete ('/:id', (req, res) => {
+  router.delete ('/:id',rejectUnauthenticated, (req, res) => {
     console.log('In delete router', req.params.id);
     
     const queryText = `DELETE FROM "groceries" WHERE  "id" = $1;`;
@@ -49,7 +53,7 @@ pool
   });
 });
 
-router.put ('/', (req, res) => {
+router.put ('/', rejectUnauthenticated, (req, res) => {
   console.log('In PUT router');
   let shopped = !req.body.shopped
   const queryText = `UPDATE "groceries" SET "shopped" = $3 WHERE user_id = $1 and id = $2;`;
@@ -62,7 +66,7 @@ pool
   });
 });
 
-router.put ('/all', (req, res) => {
+router.put ('/all', rejectUnauthenticated, (req, res) => {
   console.log('In PUT router');
   const queryText = `UPDATE "groceries" SET "shopped" = false WHERE user_id = $1;`;
 pool

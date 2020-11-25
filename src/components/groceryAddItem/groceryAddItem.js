@@ -56,11 +56,20 @@ class groceryAddItem extends Component {
       alert("please enter an item name")
     }
   }
+  //   handleInputChange = (propertyName, event) => {
+  //   console.log('this is changing', propertyName);
+  //   this.props.dispatch({
+  //     type: 'UPDATE_EDIT_EVENT',
+  //     payload: {
+  //       [propertyName]: event.target.value,
+  //     },
+  //   });
+  // };
 
   render() {
     return (
         <div className="addItemBody">
-        <h3 className="h3Header">Add items to your grocery shopping list:</h3>
+        <h4 className="h3Header">Add items to your grocery shopping list:</h4>
         <header>
             <Button className="backToListBtn" color="primary" onClick={this.backToGroceryList} ><span className="backToListArrow">
             {backToListArrow}</span>Back to Grocery List</Button>
