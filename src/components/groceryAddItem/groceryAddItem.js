@@ -48,7 +48,13 @@ class groceryAddItem extends Component {
   }
 
   addNewGroceries = () => {
-    this.props.dispatch({type: 'ADD_GROCERIES', payload: this.state.newItem});
+    console.log(this.state.newItem);
+    if (this.state.newItem.item !== '') {
+      this.props.dispatch({type: 'ADD_GROCERIES', payload: this.state.newItem});
+    }
+    else {
+      alert("please enter an item name")
+    }
   }
 
   render() {

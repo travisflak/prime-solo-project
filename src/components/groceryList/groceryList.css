@@ -51,6 +51,26 @@
         border-radius: 5px;
     }
 
+    #myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
 }
 
 /* <button class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary" tabindex="0" type="button"><span class="MuiButton-label"> Add Item to your List<span class="addButton"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus-square" class="svg-inline--fa fa-plus-square fa-w-14 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-32 252c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92H92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"></path></svg></span></span><span class="MuiTouchRipple-root"></span></button> */

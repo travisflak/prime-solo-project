@@ -15,9 +15,20 @@ function* refreshShopped(action){
     }
   }
 
+  function* refreshAllShopped(){
+    try{
+      yield axios.put(`/api/groceryList/all`)
+  
+    yield put({type: 'FETCH_GROCERIES'});
+    } catch (error){
+        console.log('error in put', error);
+    }
+  }
+
 
 function* refreshShoppedSaga() {
     yield takeLatest('REFRESH_SHOPPED', refreshShopped);
+    yield takeLatest('REFRESH_ALL_SHOPPED', refreshAllShopped);
   }
 
   export default refreshShoppedSaga;

@@ -62,5 +62,17 @@ pool
   });
 });
 
+router.put ('/all', (req, res) => {
+  console.log('In PUT router');
+  const queryText = `UPDATE "groceries" SET "shopped" = false WHERE user_id = $1;`;
+pool
+.query(queryText, [req.user.id])
+.then(() => res.sendStatus(201))
+.catch((err) => {
+  console.log('Shopped refresh failed: ', err);
+  res.sendStatus(500);
+  });
+});
+
 
 module.exports = router;
