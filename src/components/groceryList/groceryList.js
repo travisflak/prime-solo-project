@@ -4,11 +4,12 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './groceryList.css';
 import { Button } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare, faRedoAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert';
 
 const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
 const redoAlt = <FontAwesomeIcon icon={faRedoAlt} />
+const trashAlt = <FontAwesomeIcon icon={faTrashAlt} />
 
 class groceryList extends Component {
 
@@ -42,7 +43,7 @@ class groceryList extends Component {
         this.setState({...this.state, groceryList});
 
     }
-    //delete function for delting a row in the groceries table
+    //delete function for deleting a row in the groceries table
     deleteItem(deletingItem) {
         swal({
             title: "Are you sure?",
@@ -110,7 +111,6 @@ class groceryList extends Component {
 
         </header>
         <ol className="groceryList">
-            <div className="bounceAnimation bounce-7">
         
         {/* //map through graoceryItem */}
             {this.props.store.groceryListItems.map((groceryItem) => {
@@ -124,13 +124,12 @@ class groceryList extends Component {
                   <div>
                     {this.checkIfShopped(groceryItem.shopped)}
                   </div>
-                    <Button className="deleteButton" onClick={() => this.deleteItem(groceryItem.id)}>Delete Item</Button>
+                    <Button className="deleteButton" onClick={() => this.deleteItem(groceryItem.id)}>Delete Item
+                    <span className="deleteTrashIcon">{trashAlt}</span></Button>
                     <hr/>
                 </li>)
                 
             })}
-            </div>
-            {/* </div> */}
         </ol>
         </div>
         </section>

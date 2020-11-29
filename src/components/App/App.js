@@ -17,7 +17,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import groceryList from '../groceryList/groceryList';
 import groceryAddItem from '../groceryAddItem/groceryAddItem';
-import notSoSecretAdminStuffPage from '../notSoSecretAdminStuffPage/notSoSecretAdminStuffPage';
+import secretAdminStuffPage from '../secretAdminStuffPage/secretAdminStuffPage';
 
 import './App.css';
 
@@ -57,8 +57,8 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows notSoSecretAdminStuffPage else shows LoginPage
               exact
-              path="/notSoSecretAdminStuffPage"
-              component={notSoSecretAdminStuffPage}
+              path="/secretAdminStuffPage"
+              component={secretAdminStuffPage}
             />
 
 

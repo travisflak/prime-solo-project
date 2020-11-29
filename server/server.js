@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const groceryListRouter = require('./routes/groceryList.router');
+const adminRouter = require('./routes/admin.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +27,7 @@ app.use(passport.session());
 // this is a route for user login, logout, and registration
 app.use('/api/user', userRouter);
 app.use('/api/groceryList', groceryListRouter)
+app.use(`/api/secretAdmin/`, adminRouter)
 // Serve static files
 app.use(express.static('build'));
 
