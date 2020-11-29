@@ -4,11 +4,10 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './groceryList.css';
 import { Button } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusSquare, faMinusSquare, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
+import { faPlusSquare, faRedoAlt } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert';
 
 const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
-const minusSquare = <FontAwesomeIcon icon={faMinusSquare} />
 const redoAlt = <FontAwesomeIcon icon={faRedoAlt} />
 
 class groceryList extends Component {
@@ -39,16 +38,7 @@ class groceryList extends Component {
     }
     
     getGroceries=() => {
-        
-    
         this.props.dispatch({type: 'FETCH_GROCERIES'});
-        // console.log('in getGroceries', this.props.store.groceryListItems);
-        // let groceryList=[ ]
-        // for (let item of this.props.store.groceryListItems) {
-        //     console.log('in this props store groceryListItems', item);
-            
-        // }
-        
         this.setState({...this.state, groceryList});
 
     }
@@ -104,60 +94,43 @@ class groceryList extends Component {
         this.getGroceries()
     }
 
-    //Get the button:
-//     mybutton = document.getElementById("myBtn");
-
-//     // When the user scrolls down 20px from the top of the document, show the button
-//     onscroll = function() {scrollFunction()};
-
-//     scrollFunction() {
-//     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//     mybutton.style.display = "block";
-//         } else {
-//         mybutton.style.display = "none";
-//     }
-// }
-
-// When the user clicks on the button, scroll to the top of the document
-// topFunction() {
-//   document.body.scrollTop = 0; // For Safari
-//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-// }
-
   render() {
     return (
       <div>
          
         <section className="listBody">
-                            {/* //createa back to top of screen button  */}
-                            {/* <button onclick={this.topFunction} title="Go to top">Top</button> */}
         <div className="listContainer">
         <header>
             {/* button for user to click and pushes them to the addItem page */}
-                <Button className="addItemBtn" color="primary" onClick={() => this.props.history.push('/addItem')}> Add Item to your List
+                <Button className="addItemBtn" color="primary" onClick={() => this.props.history.push('/addItem')}> Add grocery Items to your List
                 <span className="addButton">{plusSquare}</span></Button>
-            {/* button or refreshing all shopped grocery items marked as shopped to NOT shopped */}
-                <Button className="refreshAllShopped" onClick={() => this.refreshAllShoppedItems()}> refresh all shopped
+            {/* button for refreshing all shopped grocery items marked as shopped to NOT shopped */}
+                <Button className="refreshAllShopped" color="primary" onClick={() => this.refreshAllShoppedItems()}> Refresh all shopped items
                 <span className="refreshIcon">{redoAlt}</span></Button>
 
         </header>
-        <ol className="groceryList">     
+        <ol className="groceryList">
+            <div className="bounceAnimation bounce-7">
+        
         {/* //map through graoceryItem */}
             {this.props.store.groceryListItems.map((groceryItem) => {
                 console.log(groceryItem);
                 
                 return(
+                
                 <li key={groceryItem.id} className={this.checkIfShopped(groceryItem.shopped)}>{groceryItem.item}
                     <input type="number" min={0} defaultValue={groceryItem.quantity} onChange={(event) => this.setState({groceryList:event.target.value})}/>
-                    <Button color="primary" onClick={() => this.toggleShopped(groceryItem)}>Shopped?</Button>
+                    <Button className="shoppedBtn" color="primary" onClick={() => this.toggleShopped(groceryItem)}>Shopped?</Button>
                   <div>
                     {this.checkIfShopped(groceryItem.shopped)}
                   </div>
-                    <Button color="secondary" onClick={() => this.deleteItem(groceryItem.id)}>Delete Item<span className="deleteButton">{minusSquare}</span></Button>
+                    <Button className="deleteButton" onClick={() => this.deleteItem(groceryItem.id)}>Delete Item</Button>
                     <hr/>
                 </li>)
                 
             })}
+            </div>
+            {/* </div> */}
         </ol>
         </div>
         </section>

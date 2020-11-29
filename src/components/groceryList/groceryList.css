@@ -1,13 +1,3 @@
-.shopped {
-    background-color: rgb(255, 166, 0);
-    border: 1px solid black;
-}
-
-.notShopped {
-    background-color: rgb(0, 255, 213);
-    border: 1px solid black;
-}
-
 @viewport {
     width: device-width ;
     zoom: 1.0 ;
@@ -15,25 +5,46 @@
 
 @media screen and (min-width:320px) {
     /* for screens that are at least 320 pixels wide */
+    ol {
+        margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+
+    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+    }
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    @-webkit-keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    
     .addButton {
         color: plum !important;
     }
     
-    .addButton:hover {
-        color: green !important;
-    }
-    
     .deleteButton {
-        color: plum !important;
-    }
-    
-    .deleteButton:hover {
-        color: green !important;
+        color: rgb(255, 0, 0) !important;
+        box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+        margin-top: 5px !important;
     }
 
     .addItemBtn {
         font-size: large !important;
         border: 1px solid black !important;
+        border-radius: 5px !important;
+        margin-left: 35px !important;
+        margin-right: 10px !important;
+        margin-top: 10px !important;
         background-color: lavender !important;
     }
 
@@ -54,53 +65,64 @@
     .refreshAllShopped {
         font-size: large !important;
         border: 1px solid black !important;
+        border-radius: 5px !important;
         background-color: lavender !important;
+        margin-left: 35px !important;
+        margin-top: 10px !important;
+        margin-right: 10px !important;
     }
 
     .refreshIcon {
         color: green !important;
+        margin-left: 5px !important;
     }
 
-    #myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: red; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-}
+    .shoppedBtn {
+        box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+        margin-bottom: 5px !important;
+    }
 
-#myBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
-}
+    .shopped {
+        background-color: rgb(216, 166, 74) !important;
+        border: 1px solid black !important;
+        text-align: center !important;
+        margin-right: 20px !important;
+    }
 
+    .notShopped {
+        background-color: rgb(0, 255, 213) !important;
+        border: 1px solid black !important;
+        text-align: center !important;
+        margin-right: 20px !important;
+
+    }
 }
 
 .addButton {
     color: plum !important;
 }
 
-.addButton:hover {
-    color: green !important;
-}
-
 .deleteButton {
-    color: plum !important;
-}
-
-.deleteButton:hover {
-    color: green !important;
+    color: rgb(255, 0, 0) !important;
+    box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
 
 .addItemBtn {
     font-size: large !important;
     border: 1px solid black !important;
+}
+
+.shopped {
+    background-color: rgb(216, 166, 74);
+    border: 1px solid black;
+    text-align: center;
+    margin-right: 20px !important;
+}
+
+.notShopped {
+    background-color: rgb(0, 255, 213);
+    border: 1px solid black;
+    text-align: center;
+    margin-right: 20px !important;
 }
 

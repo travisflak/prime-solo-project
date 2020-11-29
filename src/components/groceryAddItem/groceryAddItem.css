@@ -24,10 +24,12 @@
 
     .addButton {
         color: rgb(102, 196, 73) !important;
+        margin-left: 5px !important;
     }
 
     .backToListArrow{
-        color: rgb(102, 196, 73);
+        color: rgb(102, 196, 73) !important;
+        margin-right: 5px !important;
     }
 
     .addItemBody {
@@ -36,5 +38,9 @@
         background-position: center;
         min-height: 76vh;
         padding: 20px;
+    }
+
+    .itemInput {
+        margin-left: 0px;
     }
 }

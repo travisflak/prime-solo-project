@@ -36,15 +36,6 @@ class groceryAddItem extends Component {
       console.log(this.state);
   }
 
-  // onHandleSubmit(e) {
-  //   e.preventDefault();
-  //   const item = this.state.item;
-  //   this.props.onItemChange(item);
-  //   this.setState({
-  //     item: ''
-  //   });
-  // }
-
   backToGroceryList = () => {
       this.props.history.push('/groceryList')
   }
@@ -59,15 +50,6 @@ class groceryAddItem extends Component {
       swal("Uh oh!", "You must enter an item.", "error");
     }
   }
-  //   handleInputChange = (propertyName, event) => {
-  //   console.log('this is changing', propertyName);
-  //   this.props.dispatch({
-  //     type: 'UPDATE_EDIT_EVENT',
-  //     payload: {
-  //       [propertyName]: event.target.value,
-  //     },
-  //   });
-  // };
 
   render() {
     return (
@@ -77,8 +59,8 @@ class groceryAddItem extends Component {
             <Button className="backToListBtn" color="primary" onClick={this.backToGroceryList} ><span className="backToListArrow">
             {backToListArrow}</span>Back to Grocery List</Button>
         </header>
-        <input type="text" placeholder="item" onChange={(event) => this.handleChange(event, 'item')}/>
-        <input type="number" placeholder="quantity" min={0} onChange={(event) => this.handleChange(event, 'quantity')}/>
+        <input className="itemInput" type="text" placeholder="ITEM" onChange={(event) => this.handleChange(event, 'item')}/>
+        <input className="numberInput" type="number" placeholder="QUANTITY" min={0} onChange={(event) => this.handleChange(event, 'quantity')}/>
         <Button className="addItemText" color="primary" onClick={this.addNewGroceries} >Add Groceries to List<span className="addButton">{plusSquare}</span></Button>
       </div>
     );

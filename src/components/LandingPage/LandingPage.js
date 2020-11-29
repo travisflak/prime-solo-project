@@ -23,7 +23,7 @@ class LandingPage extends Component {
 
         <div className="grid">
           <div className="grid-col grid-col_8">
-            <p>
+            {/* <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
               id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra
               lacus ut ex molestie blandit. Etiam et turpis sit amet risus
@@ -52,8 +52,8 @@ class LandingPage extends Component {
               In vehicula sapien at semper ultrices. Vivamus sed feugiat libero.
               Sed sagittis neque id diam euismod, ut egestas felis ultricies.
               Nullam non fermentum mauris. Sed in enim ac turpis faucibus
-              pretium in sit amet nisi.
-            </p>
+              pretium in sit amet nisi. */}
+            {/* </p> */}
           </div>
           <div className="grid-col grid-col_4">
             <RegisterForm />
