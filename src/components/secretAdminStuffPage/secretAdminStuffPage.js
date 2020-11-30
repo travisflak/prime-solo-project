@@ -7,13 +7,9 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert';
 import './secretAdminStuffPage.css';
 
-
+//add const fa components
 const trashAlt = <FontAwesomeIcon icon={faTrashAlt} />
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class admin extends Component {
 
 componentDidMount() {
@@ -55,7 +51,7 @@ componentDidMount() {
 
       <ol>
         {/* {JSON.stringify(this.props.store.fetchUsers)} */}
-        {/* //map through graoceryItem */}
+        {/* //map through users */}
         {this.props.store.fetchUsers.map((user) => {
                 console.log(user);
                 

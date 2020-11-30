@@ -9,7 +9,7 @@ function* deleteUser(action){
     // use string interpolation to pass the payload
     yield axios.delete(`/api/secretAdmin/${action.payload.id}`)
     
-    yield put({type: 'FETCH_USER'});
+    yield put({type: 'GET_USER'});
     } catch (error){
         console.log('error in post', error);
     }

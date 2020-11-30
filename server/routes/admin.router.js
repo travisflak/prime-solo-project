@@ -24,12 +24,12 @@ router.get('/',rejectUnauthenticated, (req, res) => {
     });
   })
 
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-  // POST route code here
-});
+// /**
+//  * POST route template
+//  */
+// router.post('/', (req, res) => {
+//   // POST route code here
+// });
 
 router.delete ('/:id',rejectUnauthenticated, (req, res) => {
     console.log('In delete router', req.params.id);

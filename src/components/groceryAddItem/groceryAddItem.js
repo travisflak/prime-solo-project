@@ -13,10 +13,6 @@ import swal from 'sweetalert';
 const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
 const backToListArrow = <FontAwesomeIcon icon={faArrowAltCircleLeft} />
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class groceryAddItem extends Component {
   state = {
     newItem: {  
@@ -25,6 +21,7 @@ class groceryAddItem extends Component {
         shopped: false,
     }
   };
+
 //which param to enter into and take each value to put it in there
   handleChange = ( event, typeParam ) => {
       this.setState({
@@ -40,6 +37,7 @@ class groceryAddItem extends Component {
       this.props.history.push('/groceryList')
   }
 
+  //function for adding new grocery items
   addNewGroceries = () => {
     console.log(this.state.newItem);
     swal("you added an item!", "You can click Back to Grocery List to see the item that you added.", "success");
@@ -47,14 +45,13 @@ class groceryAddItem extends Component {
       this.props.dispatch({type: 'ADD_GROCERIES', payload: this.state.newItem});
     }
     else {
-      swal("Uh oh!", "You must enter an item.", "error");
+      swal("Uh oh!", "You must enter an item, and/or click Back to Grocery List.", "error");
     }
   }
 
   render() {
     return (
-        <div className="addItemBody">
-        {/* <h4 className="h4Header">Add some items to your grocery shopping list.</h4> */}
+      <div className="addItemBody">
         <header>
             <Button className="backToListBtn" color="primary" onClick={this.backToGroceryList} ><span className="backToListArrow">
             {backToListArrow}</span>Back to Grocery List</Button>
