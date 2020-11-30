@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert';
+import './secretAdminStuffPage.css';
 
 
 const trashAlt = <FontAwesomeIcon icon={faTrashAlt} />
@@ -40,7 +41,7 @@ componentDidMount() {
             icon: "success",
           });
         } else {
-          swal("The User is safe!");
+          swal("The User is still saved in the database!");
         }
       });
 
@@ -61,7 +62,7 @@ componentDidMount() {
                 return(
                 
                 <li key={user.id}>{user.username}
-                    <Button className="deleteButton" onClick={() => this.deleteUser(user.username)}>Delete User
+                    <Button className="deleteUserButton" onClick={() => this.deleteUser(user.username)}>Delete User
                     <span className="deleteTrashIcon">{trashAlt}</span></Button>
                     <hr/>
                 </li>)
