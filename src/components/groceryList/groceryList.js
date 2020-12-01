@@ -12,7 +12,7 @@ const redoAlt = <FontAwesomeIcon icon={faRedoAlt} />
 const trashAlt = <FontAwesomeIcon icon={faTrashAlt} />
 
 class groceryList extends Component {
-
+    //local state
     state = {
         groceryList: [
             
@@ -43,7 +43,7 @@ class groceryList extends Component {
         this.setState({...this.state, groceryList});
 
     }
-    //delete function for deleting a row in the groceries table
+    //delete function for deleting a row in the groceries table with swal alerts
     deleteItem(deletingItem) {
         swal({
             title: "Are you sure?",
@@ -64,12 +64,14 @@ class groceryList extends Component {
 
     }
 
+    //toggle function for refreshing shopped items
     toggleShopped(groceryItem) {
         
         this.props.dispatch({type: 'REFRESH_SHOPPED', payload: groceryItem})
         this.getGroceries()
     }
 
+    //conditional function for checking if item(s) were shopped
     checkIfShopped(isItShopped) {
         if(isItShopped === true) {
             return (

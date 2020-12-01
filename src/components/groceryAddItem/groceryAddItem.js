@@ -14,6 +14,7 @@ const plusSquare = <FontAwesomeIcon icon={faPlusSquare} />
 const backToListArrow = <FontAwesomeIcon icon={faArrowAltCircleLeft} />
 
 class groceryAddItem extends Component {
+  //local state
   state = {
     newItem: {  
         item: '',
@@ -32,7 +33,7 @@ class groceryAddItem extends Component {
       })
       console.log(this.state);
   }
-
+  //function to push the user back to the grocery list page
   backToGroceryList = () => {
       this.props.history.push('/groceryList')
   }
