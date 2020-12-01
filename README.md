@@ -67,7 +67,7 @@ The npm run client command will open up a new browser tab for you!
 
 # Built With
 
-React, Redux, Express, Passport, PostgreSQL, FontAwesome, MaterialUI, and CSS (a full list of dependencies can be found in `package.json`).
+React, Redux, Node, Express, Passport, PostgreSQL, FontAwesome, MaterialUI, and CSS (a full list of dependencies can be found in `package.json`).
 
 # Acknowledgement
 
