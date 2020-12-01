@@ -15,13 +15,13 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 // Handles POST request with new user data
-// The only thing different from this and every other post we've seen
-// is that the password gets encrypted before being inserted
+// The only thing different from this and every other post is
+// the password gets encrypted before being inserted
 router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
   const admin = req.body.admin
-// update this depending on what your user table looks like
+// user table query
   const queryText = `INSERT INTO "user" (username, password, admin)
     VALUES ($1, $2, $3) RETURNING id`;
   pool
@@ -33,8 +33,8 @@ router.post('/register', (req, res, next) => {
     });
 });
 
-// Handles login form authenticate/login POST
-// userStrategy.authenticate('local') is middleware that we run on this route
+// login form authenticate/login POST
+// userStrategy.authenticate('local') is middleware that runs on this route
 // this middleware will run our POST if successful
 // this middleware will send a 404 if not successful
 router.post('/login', userStrategy.authenticate('local'), (req, res) => {
@@ -43,7 +43,7 @@ router.post('/login', userStrategy.authenticate('local'), (req, res) => {
 
 // clear all server session information about this user
 router.post('/logout', (req, res) => {
-  // Use passport's built-in method to log out the user
+  // passport's built-in method to log out the user
   req.logout();
   res.sendStatus(200);
 });

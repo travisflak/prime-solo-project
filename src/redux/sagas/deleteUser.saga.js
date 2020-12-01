@@ -23,8 +23,6 @@ function* deleteUser(action){
     const user = yield axios.get('/api/secretAdmin/')
 
     yield put({type: 'SET_ADMIN_DATA', payload: user.data});
-
-    // yield put({type: 'GET_USER'});
     
     } catch (error){
         console.log('error in post', error);

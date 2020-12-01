@@ -22,7 +22,7 @@ componentDidMount() {
     })
   }
 
-  //delete function for deleting a user
+  //delete user function for deleting a user
   deleteUser(deletingUser) {
     swal({
         title: "Are you sure?",

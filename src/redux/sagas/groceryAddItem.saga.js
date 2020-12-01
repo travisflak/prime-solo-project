@@ -1,7 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-
+//function generator for adding grocery items
 function* addGroceries(action){
     console.log('hello from addGroceryItem', action.payload);
     try{

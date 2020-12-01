@@ -6,9 +6,6 @@ const {
     rejectUnauthenticated,
   } = require('../modules/authentication-middleware');
 
-/** these are templates for GET and POST routes
- * GET route template
- */
 //get route querying all data from user table
 router.get('/',rejectUnauthenticated, (req, res) => {
     console.log('GET', req.user.id);
@@ -23,13 +20,6 @@ router.get('/',rejectUnauthenticated, (req, res) => {
           res.sendStatus(500);
     });
   })
-
-// /**
-//  * POST route template
-//  */
-// router.post('/', (req, res) => {
-//   // POST route code here
-// });
 
 router.delete ('/:id',rejectUnauthenticated, (req, res) => {
     console.log('In delete router', req.params.id);

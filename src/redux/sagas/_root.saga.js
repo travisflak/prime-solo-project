@@ -9,13 +9,12 @@ import refreshShoppedSaga from './refreshShopped.saga.js';
 import deleteUserSaga from './deleteUser.saga';
 
 // rootSaga is the primary saga.
-// It bundles up all of the other sagas so our project can use them.
-// This is imported in index.js as rootSaga
+// bundle up all of the other sagas so the project can use them.
+// imported in index.js as rootSaga
 
-// some sagas trigger other sagas, as an example
-// the registration triggers a login
+// registration triggers a login
 // and login triggers setting the user
-//it doesn't matter what saga you create, it won't register if you don't add it to the yield all array below
+//register all sagas
 export default function* rootSaga() {
   yield all([
     loginSaga(), // login saga is now registered

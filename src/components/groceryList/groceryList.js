@@ -43,6 +43,7 @@ class groceryList extends Component {
         this.setState({...this.state, groceryList});
 
     }
+    
     //delete function for deleting a row in the groceries table with swal alerts
     deleteItem(deletingItem) {
         swal({

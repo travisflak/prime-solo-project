@@ -1,6 +1,7 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
+// sagas for refreshing all shopped items
 
 function* refreshShopped(action){
     
@@ -25,7 +26,7 @@ function* refreshShopped(action){
     }
   }
 
-
+//watcher
 function* refreshShoppedSaga() {
     yield takeLatest('REFRESH_SHOPPED', refreshShopped);
     yield takeLatest('REFRESH_ALL_SHOPPED', refreshAllShopped);

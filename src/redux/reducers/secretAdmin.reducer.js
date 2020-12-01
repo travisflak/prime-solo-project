@@ -1,4 +1,4 @@
-//fetchgGroceries reducer for returning the grocery list items
+//fetchUsers reducer for returning the users list
 const fetchUsers = (state = [], action) => {
     switch (action.type) {
       case 'SET_ADMIN_DATA':

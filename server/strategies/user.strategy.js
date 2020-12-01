@@ -34,7 +34,7 @@ passport.deserializeUser((id, done) => {
     });
 });
 
-// Does actual work of logging in
+// Actual work of logging in
 passport.use(
   'local',
   new LocalStrategy((username, password, done) => {

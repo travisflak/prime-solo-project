@@ -7,7 +7,7 @@ Duration: 2 Week Sprint
 
 GroceryRun is a web based mobile apllication that's designed and developed for users to make a grocery list, edit the list, and save list items to a database connected to their account information. This app solves the problem of manually making a list for grocery shopping for multiple people without being in proximity of one another.
 
-To see the fully functional site, please visit:
+To see the fully functional site, please visit: TBD
 
 ## Screen Shot
 

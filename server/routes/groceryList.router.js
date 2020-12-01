@@ -28,7 +28,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     const item = req.body.item;
     const quantity = req.body.quantity;
     const shopped = req.body.shopped;
-  // update this depending on what your groceries table looks like
+  // groceries table query
     const queryText = `INSERT INTO "groceries" (user_id, item, quantity, shopped)
       VALUES ($1, $2, $3, $4)`;
     pool
