@@ -8,7 +8,7 @@ const {
 
 //get route querying all data from groceries table
 
-router.get('/', (req, res) => {
+router.get('/',rejectUnauthenticated, (req, res) => {
   console.log('GET', req.user.id);
   
   const queryText = `SELECT * FROM "groceries" WHERE "user_id" = $1 ORDER BY "id" asc`;
